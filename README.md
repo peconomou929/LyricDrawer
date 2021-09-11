@@ -16,13 +16,12 @@ import document
 document.LyricDocument(r"../examples/viva_la_vida.txt").draw(lyric_size = 11, margin = 3)
 ```
 
-This will render the specified Lyric Sheet. The document will open in a new window. If the lyric sheet supplied is `path/to/file.extension`, then, a postscript file will be saved at `path/to/file.eps`. An excerpt from the lyric sheet rendered above is seen below: 
+This will render the specified Lyric Sheet. The document will open in a new window. If the lyric sheet supplied is `path/to/file.extension`, then, a postscript file will be saved at `path/to/file.eps`. An excerpt from the rendered lyric sheet is seen below: 
+![Image missing](./examples/viva_la_vida.png)
 
-![Image Missing](viva_la_vida.png "Viva La Vida")
-
+You can also make your own lyric sheet, but it must follow a certain format.
 ### Format of Lyric Sheet
-The Lyric Sheet must have a very specific format. It is read line by line. Each
-line is either
+Lyric sheets are read line by line. Each line is either
 - an *empty* line, in which case it renders as a blank line in the document
 - a *text* line, in which case it must begin with `Title`, `Header`, or `Normal`, followed by a colon `:` and then white space and then any text which should be rendered
 - or a *lyric* line, described below
@@ -43,7 +42,7 @@ but not both. This indicate octave changes; more on that below. The note token i
 
 The note token indicates the note at which all subsequent lyric tokens are to be sung, until a note change occurs, indicated by new note token. 
 
-There might be ambiguity regarding pitch. For example, `A` can be sung at different octaves. By default, the very first pitch in a line is chosen arbitrarily, and after that each pitch is chosen to be as close as possible (in half steps) to the previous pitch chosen. For example, when moving from `A` to `C`, the pitch chosen for `C` is 3 half steps above the previous, rather than 9 half steps below. To indicate that you mean the `C` below, you would instead write `<C:`. If you want the `C` an octave further down than this, you would use `<<C:`. The other character `>` similarly indicates a motion upward.
+There might be ambiguity regarding pitch. For example, `A:` can be sung at different octaves. By default, the very first pitch in a line is chosen arbitrarily, and after that each pitch is chosen to be as close as possible (in half steps) to the previous pitch chosen. For example, when moving from `A:` to `C:`, the pitch chosen for `C:` is 3 half steps above the previous, rather than 9 half steps below. To indicate that you mean the one below, you would instead write `<C:`. If you want the one an octave further down than this, you would use `<<C:`. The other character `>` similarly indicates a motion upward.
 
 #### Format of Lyric Tokens
 Anything that cannot be interpreted as a note token will be interpreted as a lyric token.
