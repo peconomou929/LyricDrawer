@@ -34,6 +34,10 @@ Lyric sheets are read line by line. Each line is either
 *Lyric lines* are put together into *lyric sections* if they are not separated by any *empty lines* or *text lines*.
 
 ### Format of Lyric Lines
+Here is an example of what a lyric line looks like:
+
+`E: Now in the morning I - sleep ----- F: a D: lone -----; sweep - <G: the >D: streets - I - used - E: to C: own B: * A: *`
+
 A *lyric line* must have a specific format. It is read token by token, where tokens are separated by white space. Each token is either
 - a *note token*
 - or a *lyric token*
@@ -43,11 +47,11 @@ A *lyric line* should always begin with a *note token*. A *note token* indicates
 #### Format of Note Tokens
 
 A *note token* begins optionally with any number of `>` OR any number of `<`
-but not both. This indicates octave changes; more on that below. The *note token* is then followed by a valid note name (like `A`, `C#`, or `Eb`) and finally a colon `:`. For example, `Ab:`, `<A#:`, and `>>Cb:` are all valid *note tokens*, but `Ab`, `<AA:`, and `<>Cb:` are invalid.
+but not both. These indicate octave changes; more on that below. The *note token* is then followed by a valid note name (like `A`, `C#`, or `Eb`) and finally a colon `:`. For example, `Ab:`, `<A#:`, and `>>Cb:` are all valid *note tokens*, but `Ab`, `<AA:`, and `<>Cb:` are invalid.
 
 The *note token* indicates the note at which all subsequent *lyric tokens* are to be sung, until a note change occurs, indicated by new *note token*. 
 
-There might be ambiguity regarding pitch. For example, `A:` can be sung at different octaves. By default, the very first pitch in a line is chosen arbitrarily, and after that each pitch is chosen to be as close as possible (in half steps) to the previous pitch chosen. For example, when moving from `A:` to `C:`, the pitch chosen for `C:` is 3 half steps above the previous, rather than 9 half steps below. To indicate that you mean the one below, you would instead write `<C:`. If you want the one an octave further down than this, you would use `<<C:`. The other character `>` similarly indicates a motion upward.
+There might be ambiguity regarding pitch. For example, `A:` can be sung at different octaves. By default, the very first pitch in a *lyric line* is chosen arbitrarily, and after that each pitch is chosen to be as close as possible (in half steps) to the previous pitch chosen. For example, when moving from `A:` to `C:`, the pitch chosen for `C:` is 3 half steps above the previous, rather than 9 half steps below. To indicate that you mean the one below, you would instead write `<C:`. If you want the one an octave further down than this, you would use `<<C:`. The other character `>` similarly indicates a motion upward.
 
 #### Format of Lyric Tokens
 Anything that cannot be interpreted as a *note token* will be interpreted as a *lyric token*.
