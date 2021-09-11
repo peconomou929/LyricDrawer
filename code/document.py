@@ -3,80 +3,6 @@ import notes
 import lyric_items
 import text
 
-'''
-
-USAGE:
-import document
-document.LyricDocument("path/to/file.txt").draw(lyric_size = 11, margin = 3)
-
-This will open the specified file, and generate a document displaying the 
-lyrics it contains. This document will appear in a window, and will close
-upon being clicked. Also, a postscript file will be saved at path/to/file.eps
-
-The lyrics file must have a specific format. It is read line by line. Each
-line is either
-1) empty, in which case it renders as a blank space in the document, the size
-determined by "margin"
-2) a text line, in which case it must begin with "Title", "Header", or "Normal",
-followed by a colon ":" and then white space and then any text which should be 
-rendered in the desired form
-3) or a lyric line, described below
-
-Lyric lines are put together into lyric sections if they are not separated by
-any empty lines or text lines.
-
-A lyric line must have a specific format. It is read token by token, where 
-tokens are separated by white space. Each token is either
-1) a note token
-2) or a lyric token
-
-A note token begins optionally with any number of ">" OR any number of "<"
-but not both. It is then followed by a valid note_name (like "A", "C#", or "Eb") 
-and finally a colon ":". 
-
-Valid note tokens: "Ab:", "<A#:", ">>Cb:"
-Invalid note tokens: "Ab", "<AA:", "<>Cb:"
-
-The note token indicates the note at which all subsequent lyric tokens are to be sung,
-until a note change occurs, indicated by new note token. 
-
-There might be ambiguity regarding pitch. For example, "A" can be sung at different octaves.
-By default, the very first pitch in a line is chosen arbitrarily, 
-and after that each pitch is chosen to be as close as possible (in half steps) to the 
-previous pitch chosen. For example, when moving from "A" to "C", the pitch chosen for
-"C" is 3 half steps above the previous, rather than 9 half steps below. To indicate that
-you mean the "C" below, you would instead write "<C:". If you want the "C" an octave
-further down than this, you would use "<<C:". The other character ">" works the same way.
-
-That's all there is to note tokens. Now what is a lyric token? 
-
-A lyric token can be either
-1) a tone token
-2) a hold token
-3) a rest token
-4) a word token
-
-Each token renders in some way on the screen at a height according to the current note being sung. By 
-default there is a line joining each token to the next, unless it is what we call "disconnected," 
-indicated by the character ";" at the end.
-
-A tone token consists of a single "*", optionally followed by a ";". This is a note that should be sung
-without any words.
-
-A hold token consists of any number of "-" and optionally a single ";" at the end. Each "-" indicates a single
-beat for which you want to hold (without any words) the note previously sung. 
-
-You can always use "-" in place of "*", but "*" will render more nicely if you are changing pitches while
-singing without words.
-
-A rest token consists of any number of ".", each indicating a single beat for which no sound is made. 
-A rest is always disconnected, and so is the token immediately before the rest.
-
-A word token is any token which does not follow any of the patters above. The main part of the word token
-is the token itself, or, if the last character is ";", then everything but the last character. The main 
-part of the word token will render in its entirety on a screen, indicating the words to be sung.
-'''
-
 class DocText:
 	type_to_size = {
 		"Title" : 14,
@@ -207,6 +133,11 @@ class LyricSection:
 		width = font_size * self.get_width_R()
 		Rectangle(Point(ulx, uly - height), Point(ulx + width, uly)).draw(win)
 
+def remove_extension(file_path):
+	while not file_path[-1] == ".":
+		file_path = file_path[0:-1]
+	return file_path[0:-1]
+
 class LyricDocument:
 	def __init__(self, file_path):
 		with open(file_path) as f:
@@ -232,7 +163,7 @@ class LyricDocument:
 				else:
 					section_lines.append(line)
 		dump(section_lines, score)
-		self.name = file_path.split(".")[0]
+		self.name = remove_extension(file_path)
 		self.score = score
 	
 	def get_max_section_width_R(self):

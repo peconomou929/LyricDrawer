@@ -10,12 +10,15 @@ pip install graphics.py
 
 ## Usage
 
+Pass into the directory	`code` and enter a python interpreter.
 ```python
 import document
-document.LyricDocument(r"path/to/file.txt").draw(lyric_size = 11, margin = 3)
+document.LyricDocument(r"../examples/viva_la_vida.txt").draw(lyric_size = 11, margin = 3)
 ```
 
-This will render the specified Lyric Sheet. The document will appear in a window, and will close upon being clicked. Meanwhile, a postscript file will be saved at `path/to/file.eps`. To try out an existing lyric sheet, use the file `examples/viva_la_vida.txt` or `grenade.txt`. 
+This will render the specified Lyric Sheet. The document will open in a new window. If the lyric sheet supplied is `path/to/file.extension`, then, a postscript file will be saved at `path/to/file.eps`. An excerpt from the lyric sheet rendered above is seen below: 
+
+![Image Missing](viva_la_vida.png "Viva La Vida")
 
 ### Format of Lyric Sheet
 The Lyric Sheet must have a very specific format. It is read line by line. Each
@@ -36,12 +39,7 @@ A lyric line should always begin with a note token. A note token indicates the p
 #### Format of Note Tokens
 
 A note token begins optionally with any number of `>` OR any number of `<`
-but not both. This indicate octave changes; more on that below. The note token is then followed by a valid note name (like `A`, `C#`, or `Eb`) and finally a colon `:`. For example, 
-
-```python
-valid_note_tokens = [`Ab:`, `<A#:`, `>>Cb:`]
-invalid_note_tokens = [`Ab`, `<AA:`, `<>Cb:`]
-```
+but not both. This indicate octave changes; more on that below. The note token is then followed by a valid note name (like `A`, `C#`, or `Eb`) and finally a colon `:`. For example, `Ab:`, `<A#:`, and `>>Cb:` are all valid note tokens, but `Ab`, `<AA:`, and `<>Cb:` are invalid.
 
 The note token indicates the note at which all subsequent lyric tokens are to be sung, until a note change occurs, indicated by new note token. 
 
