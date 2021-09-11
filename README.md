@@ -34,7 +34,7 @@ Lyric sheets are read line by line. Each line is either
 *Lyric lines* are put together into *lyric sections* if they are not separated by any *empty lines* or *text lines*.
 
 ### Format of Lyric Lines
-Here is an example of what a lyric line looks like:
+Here is an example of what a *lyric line* looks like:
 
 `E: Now in the morning I - sleep ----- F: a D: lone -----; sweep - <G: the >D: streets - I - used - E: to C: own B: * A: *`
 
