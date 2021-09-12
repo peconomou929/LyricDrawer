@@ -1,5 +1,7 @@
 # LyricDrawer
-A tool for rendering documents with song lyrics, in a form that evokes pitch and rhythm. 
+A tool for rendering documents with song lyrics, in a form that evokes pitch and rhythm. See below:
+
+![Image missing](./examples/viva_la_vida.png)
 
 The lyric sheets are intended to be accessible for even those who cannot read sheet music. They do not unambiguously specify the way the lyrics should be sung; however, they should provide enough assistance for somebody to recall the pitch and rhythm if they have previously learned it.
 
@@ -18,9 +20,7 @@ import document
 document.LyricDocument(r"../examples/viva_la_vida.txt").draw(lyric_size = 11, margin = 3)
 ```
 
-This will render the specified lyric sheet. The document will open in a new window. If the lyric sheet supplied is `path/to/file.extension`, then a postscript file will be saved at `path/to/file.eps`. An excerpt from the rendered lyric sheet is seen below: 
-
-![Image missing](./examples/viva_la_vida.png)
+This will render the specified lyric sheet. The document will open in a new window. If the lyric sheet supplied is `path/to/file.extension`, then a postscript file will be saved at `path/to/file.eps`. An excerpt from the lyric sheet is seen above. 
 
 You can also make your own lyric sheet, but it must follow a certain format.
 ### Format of Lyric Sheet
