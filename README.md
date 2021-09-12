@@ -1,5 +1,7 @@
 # LyricDrawer
-A tool, to be used by musicians, for generating lyric sheets to be read by non-musicians.
+A tool for rendering documents with song lyrics, in a form that evokes pitch and rhythm. 
+
+The lyric sheets are intended to be accessible for even those who cannot read sheet music. They do not unambiguously specify the way the lyrics should be sung; however, they should provide enough assistance for somebody to recall the pitch and rhythm if they have previously learned it.
 
 ## Installation 
 Clone the repository and use pip to install the underlying graphics tool:
