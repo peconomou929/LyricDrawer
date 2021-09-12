@@ -33,7 +33,7 @@ Lyric sheets are read line by line. Each line is either
 	- and then any text which should be rendered,
 - or a *lyric line*, described below.
 
-*Lyric lines* are put together into *lyric sections* if they are not separated by any *empty lines* or *text lines*.
+*Lyric lines* are put together into *lyric sections* if they are not separated by any *empty lines* or *text lines*. A lyric section has a rectangle around it in the document. 
 
 ### Format of Lyric Lines
 Here is an example of what a *lyric line* looks like:
