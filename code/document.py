@@ -177,41 +177,41 @@ class LyricDocument:
 		sections = filter(lambda part : isinstance(part, LyricSection), self.score)
 		return max(section.get_width_R() for section in sections)
 	
-	def get_width(self, lyric_size, margin):
-		return lyric_size * self.get_max_section_width_R() + 2*margin
+	def get_width(self, lyric_size, spacing):
+		return lyric_size * self.get_max_section_width_R() + 2*spacing
 
-	def get_height(self, lyric_size, margin):
-		result = margin
+	def get_height(self, lyric_size, spacing):
+		result = spacing
 		for part in self.score:
 			if isinstance(part, DocText):
 				result += text.get_height(part.size)
 			elif isinstance(part, Gap):
-				result += margin
+				result += spacing
 			elif isinstance(part, LyricSection):
 				result += lyric_size * part.get_height_R()
 			else:
 				raise ValueError
-			result += margin
+			result += spacing
 		return result
 		
-	def draw(self, lyric_size, margin):
-		width = self.get_width(lyric_size, margin)
-		height = self.get_height(lyric_size, margin)
+	def draw(self, lyric_size, spacing):
+		width = self.get_width(lyric_size, spacing)
+		height = self.get_height(lyric_size, spacing)
 		win = GraphWin(" ", width, height)
 		win.setCoords(0, 0, width, height)
-		x = margin
-		y = height - margin
+		x = spacing
+		y = height - spacing
 		for part in self.score:
 			if isinstance(part, DocText):
 				text.place(part.text, part.size, x, y, "left_top").draw(win)
 				y -= text.get_height(part.size)
 			elif isinstance(part, Gap):
-				y -= margin
+				y -= spacing
 			elif isinstance(part, LyricSection):
 				part.draw(win, x, y, lyric_size)
 				y -= lyric_size * part.get_height_R()
 			else:
 				raise ValueError
-			y -= margin
+			y -= spacing
 		win.postscript(file = self.target, colormode = 'color')
 		win.close()

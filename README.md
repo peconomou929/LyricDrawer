@@ -25,7 +25,7 @@ python3 draw.py examples/viva_la_vida.txt
 ```
 When the document is done rendering, it will save a postscript file to `path/to/file.eps` and open the file in the your system's default file viewer. 
 
-You can also use the command line options `-l` to specify the font size of the lyics, and `-m` to specify the margins (space between objects in the document). Refer to the command line documentation for help: 
+You can also use the command line options `-l` to specify the font size of the lyics, and `-s` to specify the spacing between objects in the document. Refer to the command line documentation for help: 
 
 ```python
 python3 draw.py -h
