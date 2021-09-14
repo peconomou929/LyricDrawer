@@ -14,7 +14,7 @@ Header: Chorus (C1)
 G: I A: hear - Je - ru G: sa A: lem G: bells -- D: are E: ring - F: ing .. G: Ro - man - ca E: val G: ry E: choirs -- <A: are B: sing - C: ing
 A: Be - my - mir G: ror A: my G: sword -- D: and E: shi - F: eld . E: my G: mis E: sion G: ar - ies E: in G: a E: for - <A: eign - B: fie - C: ld 
 A: For - some - rea G: son A: I B: can't - ex - plain ----; G: once - you - go - there F: was ne E: ver 
-E: never an ho ------ F: nest D: word -----; C: * D: that C: was B: when I -- E: ru B: led the C: world
+E: never an ho ----- F: nest - D: word -----; C: * D: that C: was B: when I -- E: ru B: led the C: world
 
 Header: Verse (V3)
 E: It was the wicked and wi ----- F: ld - D: wind -----; blew down C: the D: doors -- C: to E: let - <G: me A: in
@@ -26,6 +26,10 @@ Header: Chorus (C2)
 G: I A: hear - Je - ru G: sa A: lem G: bells -- D: are E: ring - F: ing .. G: Ro - man - ca E: val G: ry E: choirs -- <A: are B: sing - C: ing
 A: Be - my - mir G: ror A: my G: sword -- D: and E: shi - F: eld . E: my G: mis E: sion G: ar - ies E: in G: a E: for - <A: eign - B: fie - C: ld 
 A: For - some - rea G: son A: I B: can't - ex - plain ---; <E: I G: know - Saint - Pe F: ter will ca E: ll my - name
-E: never an ho ---- F: nest D: word -----; C: * D: that C: was B: when I -- E: ru B: led the C: world
+E: never an ho --- F: nest - D: word -----; C: * D: that C: was B: when I -- E: ru B: led the C: world
 
 Header: Chorus (C2)
+G: I A: hear - Je - ru G: sa A: lem G: bells -- D: are E: ring - F: ing .. G: Ro - man - ca E: val G: ry E: choirs -- <A: are B: sing - C: ing
+A: Be - my - mir G: ror A: my G: sword -- D: and E: shi - F: eld . E: my G: mis E: sion G: ar - ies E: in G: a E: for - <A: eign - B: fie - C: ld 
+A: For - some - rea G: son A: I B: can't - ex - plain ---; <E: I G: know - Saint - Pe F: ter will ca E: ll my - name
+E: never an ho --- F: nest - D: word -----; C: * D: that C: was B: when I -- E: ru B: led the C: world

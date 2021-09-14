@@ -1,7 +1,12 @@
 from graphics import *
-import notes
-import lyric_items
-import text
+from code import notes
+from code import lyric_items
+from code import text
+
+'''
+Any variable ending in _R means that it is relative to font size. 
+To get the value in pixels, multiply by font size.
+'''
 
 class DocText:
 	type_to_size = {
@@ -134,6 +139,8 @@ class LyricSection:
 		Rectangle(Point(ulx, uly - height), Point(ulx + width, uly)).draw(win)
 
 def remove_extension(file_path):
+	if "." not in file_path:
+		return file_path
 	while not file_path[-1] == ".":
 		file_path = file_path[0:-1]
 	return file_path[0:-1]
@@ -163,7 +170,7 @@ class LyricDocument:
 				else:
 					section_lines.append(line)
 		dump(section_lines, score)
-		self.name = remove_extension(file_path)
+		self.target = remove_extension(file_path) + ".eps"
 		self.score = score
 	
 	def get_max_section_width_R(self):
@@ -190,7 +197,7 @@ class LyricDocument:
 	def draw(self, lyric_size, margin):
 		width = self.get_width(lyric_size, margin)
 		height = self.get_height(lyric_size, margin)
-		win = GraphWin(self.name, width, height)
+		win = GraphWin(" ", width, height)
 		win.setCoords(0, 0, width, height)
 		x = margin
 		y = height - margin
@@ -206,5 +213,5 @@ class LyricDocument:
 			else:
 				raise ValueError
 			y -= margin
-		win.postscript(file = self.name + ".eps", colormode = 'color')
-		win.getMouse()
+		win.postscript(file = self.target, colormode = 'color')
+		win.close()

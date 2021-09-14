@@ -1,5 +1,5 @@
 import graphics
-import text
+from code import text
 
 hold_char = "-"
 rest_char = "."

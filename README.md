@@ -14,15 +14,18 @@ pip install graphics.py
 
 ## Usage
 
-Pass into the directory	`code` and enter a python interpreter. Enter the following code:
+From the top level directory, render a specific lyric sheet:
 ```python
-import document
-document.LyricDocument(r"../examples/viva_la_vida.txt").draw(lyric_size = 11, margin = 3)
+python3 draw.py path/to/file.extension
 ```
+Example:
 
-This will render the specified lyric sheet. The document will open in a new window. If the lyric sheet supplied is `path/to/file.extension`, then a postscript file will be saved at `path/to/file.eps`. An excerpt from the lyric sheet is seen above. 
+```python
+python3 draw.py examples/viva_la_vida.txt
+```
+When the document is done rendering, it will save a postscript file to `path/to/file.eps` and open the file in the your system's default file viewer. 
 
-You can also make your own lyric sheet, but it must follow a certain format.
+You can make your own lyric sheet, but it must follow a certain format.
 ### Format of Lyric Sheet
 Lyric sheets are read line by line. Each line is either
 - an *empty line*, in which case it renders as a blank line in the document, 
