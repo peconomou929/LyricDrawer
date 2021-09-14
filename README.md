@@ -32,7 +32,7 @@ python3 draw.py -h
 ```
 
 You can make your own lyric sheet, but it must follow a certain format.
-### Format of Lyric Sheet
+## Format of Lyric Sheet
 Lyric sheets are read line by line. Each line is either
 - an *empty line*, in which case it renders as a blank line in the document, 
 - a *text line*, in which case it must 
